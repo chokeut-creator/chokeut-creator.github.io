@@ -35,7 +35,7 @@ button:focus-visible{outline:4px solid #fff;outline-offset:4px}
 .stat small{display:block;color:#bde8ff;font-size:12px}.stat strong{font-size:clamp(19px,2vw,27px)}
 .timer-track{height:12px;background:#04183d;border-radius:99px;overflow:hidden;max-width:650px;width:100%;margin:0 auto}
 .timer-fill{height:100%;width:100%;background:linear-gradient(90deg,#42ffca,#ffe45d,#ff5d42);transition:width .15s linear}
-.lab{display:grid;grid-template-columns:1fr minmax(160px,.65fr) 1fr;gap:clamp(8px,2vw,22px);align-items:stretch;max-width:1150px;width:100%;margin:0 auto}
+.lab{display:grid;grid-template-columns:1fr minmax(120px,.38fr) 1fr;gap:clamp(2px,.5vw,6px);align-items:stretch;max-width:1250px;width:100%;margin:0 auto}
 .side{background:#ffffff0e;border:1px solid #ffffff35;border-radius:20px;padding:14px;min-width:0}
 .side h2{margin:0;text-align:center;font-size:clamp(18px,2vw,25px)}
 .side .desc{text-align:center;color:#b9dfff;font-size:13px;margin:4px 0 12px}
@@ -43,15 +43,15 @@ button:focus-visible{outline:4px solid #fff;outline-offset:4px}
 .atom{position:relative;min-width:0;aspect-ratio:1;border-radius:50%;border:2px solid #8bdfff;background:radial-gradient(circle at 30% 25%,#d8f7ff,#3d9aff 45%,#12449d 80%);box-shadow:inset 0 -5px 10px #071a6b88,0 0 9px #43caff55;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;text-shadow:0 2px 4px #003;font-size:clamp(12px,1.5vw,18px);user-select:none}
 .atom.al{background:radial-gradient(circle at 30% 25%,#f2fbff,#a8c7e8 45%,#5078b7 82%);border-color:#d6edff;color:#153c70;text-shadow:none}
 .atom.cu{border-color:#ffdd9b;background:radial-gradient(circle at 30% 25%,#fff2b2,#ff9d36 47%,#a63c14 85%)}
-.e-dot{position:absolute;width:clamp(9px,1vw,13px);height:clamp(9px,1vw,13px);border-radius:50%;background:#1b43ff;border:1px solid #a9efff;box-shadow:0 0 5px #5df3ff;z-index:2}
-.e-dot:after{content:"−";position:absolute;inset:-4px 0 0;text-align:center;color:white;font-size:10px;font-weight:900}
-.e-dot.draggable{cursor:grab;touch-action:none}
+.e-dot{position:absolute;width:clamp(17px,1.7vw,23px);height:clamp(17px,1.7vw,23px);border-radius:50%;background:#1b43ff;border:2px solid #a9efff;box-shadow:0 0 7px #5df3ff;z-index:3}
+.e-dot:after{content:"−";position:absolute;inset:0;text-align:center;color:white;font-size:clamp(12px,1.2vw,16px);line-height:1;font-weight:900}
+.e-dot.draggable{cursor:grab;touch-action:none;transform:translate(-15%,-15%)}
 .e-dot.draggable:hover{transform:scale(1.25);box-shadow:0 0 10px #fff}
-.e-dot.used{opacity:.14;pointer-events:none}
+.e-dot.used{opacity:.14;pointer-events:none}.e-dot.being-dragged{filter:brightness(1.3);box-shadow:0 0 12px #fff;}
 .atom .charge{position:absolute;top:-8px;right:-4px;font-size:11px;background:#072b64;border:1px solid #b9eaff;border-radius:8px;padding:1px 4px}
 .cu-targets{position:absolute;inset:0;pointer-events:none}
-.slot{position:absolute;width:25%;aspect-ratio:1;border-radius:50%;border:2px dashed #f7ffff;box-shadow:0 0 7px #57eaff;background:#061e5577}
-.slot.filled{border-style:solid;background:#1b43ff;border-color:#fff}
+.slot{position:absolute;width:34%;aspect-ratio:1;border-radius:50%;border:2px dashed #f7ffff;box-shadow:0 0 7px #57eaff;background:#061e5577;pointer-events:auto}
+.slot.filled{border-style:solid;background:#1b43ff;border-color:#fff}.atom.precipitate{clip-path:polygon(25% 0,75% 0,100% 25%,100% 75%,75% 100%,25% 100%,0 75%,0 25%);border-radius:0;background:linear-gradient(145deg,#ffe6a0,#c96c27 60%,#783b16);border-color:#fff0b0;box-shadow:0 0 15px #ffca5a}.precip-label{position:absolute;left:50%;top:-18px;transform:translateX(-50%);font-size:12px;font-weight:1000;color:#fff6a3;text-shadow:0 0 7px #ff7b16;pointer-events:none;animation:precipFade 1.25s ease forwards;white-space:nowrap;z-index:8}@keyframes precipFade{0%{opacity:0;transform:translate(-50%,8px) scale(.7)}20%{opacity:1;transform:translate(-50%,0) scale(1.12)}70%{opacity:1}100%{opacity:0;transform:translate(-50%,-14px) scale(.9)}}
 .center-panel{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;text-align:center;padding:12px;border-radius:20px;background:linear-gradient(180deg,#09275ccc,#113c7caa);border:1px solid #74dfff66}
 .equation{font-size:clamp(15px,1.8vw,23px);font-weight:900;line-height:1.7}
 .equation .react{color:#d9f5ff}.equation .product{color:#ffe58a}
@@ -88,6 +88,7 @@ button:focus-visible{outline:4px solid #fff;outline-offset:4px}
   </div>
   <h1 class="heading">전자를 제한 시간 안에 옮겨라!</h1>
   <p class="subheading">알루미늄이 내놓은 전자를 구리 이온에게 옮겨 산화·환원을 완성하세요.</p>
+  <div class="equation" style="text-align:center;background:#08275dbb;border:1px solid #75dcff66;border-radius:16px;padding:8px 16px;max-width:650px;width:100%;margin:0 auto"><span class="react" id="eqAl">2Al</span> + <span class="react" id="eqCu">3Cu²⁺</span> <span style="color:#ffe77c">→</span> <span class="product" id="eqAlProduct">2Al³⁺</span> + <span class="product" id="eqCuProduct">3Cu</span></div>
   <div class="stats">
     <div class="stat"><small>남은 시간</small><strong id="timeText">20.0초</strong></div>
     <div class="stat"><small>이동한 전자</small><strong id="progressText">0 / 6</strong></div>
@@ -100,9 +101,8 @@ button:focus-visible{outline:4px solid #fff;outline-offset:4px}
       <div id="alParticles" class="particles"></div>
     </div>
     <div class="center-panel">
-      <div class="equation"><span class="react" id="eqAl">2Al</span> + <span class="react" id="eqCu">3Cu²⁺</span><br><span style="color:#ffe77c">→</span><br><span class="product" id="eqAlProduct">2Al³⁺</span> + <span class="product" id="eqCuProduct">3Cu</span></div>
       <div class="transfer-arrow">⇢</div>
-      <div class="instruction">파란색 <b>− 전자</b>를<br>구리 이온의 점선 칸으로 끌어다 놓으세요.<br>전자 6개를 모두 옮기면 성공!</div>
+      <div class="instruction">파란색 <b>− 전자</b>를<br>구리 이온의 점선 칸으로 끌어다 놓으세요.<br>구리 이온 하나에 전자 2개가 들어가면<br><b>Cu 석출!</b></div>
     </div>
     <div class="side">
       <h2>Cu²⁺ · 구리 이온</h2><div class="desc">전자 2개를 받아요</div>
@@ -162,7 +162,7 @@ button:focus-visible{outline:4px solid #fff;outline-offset:4px}
     const alBox=$('alParticles'),cuBox=$('cuParticles'); alBox.innerHTML='';cuBox.innerHTML='';
     for(let i=0;i<spec.al;i++){
       const atom=document.createElement('div');atom.className='atom al';atom.dataset.al=i;atom.textContent='Al';
-      for(let j=0;j<3;j++){const dot=document.createElement('span');dot.className='e-dot draggable';dot.draggable=true;dot.dataset.al=i;dot.dataset.e=j;dot.style.left=([0,75,37][j])+'%';dot.style.top=([4,30,72][j])+'%';dot.title='전자 −';atom.appendChild(dot);}
+      for(let j=0;j<3;j++){const dot=document.createElement('span');dot.className='e-dot draggable';dot.draggable=true;dot.dataset.al=i;dot.dataset.e=j;dot.style.left=([2,72,35][j])+'%';dot.style.top=([2,28,70][j])+'%';dot.title='전자 −';atom.appendChild(dot);}
       alBox.appendChild(atom);
     }
     for(let i=0;i<spec.cu;i++){
@@ -170,30 +170,25 @@ button:focus-visible{outline:4px solid #fff;outline-offset:4px}
       const charge=document.createElement('span');charge.className='charge';charge.textContent='2+';atom.appendChild(charge);
       for(let j=0;j<2;j++){const dot=document.createElement('span');dot.className='e-dot';dot.style.left=(j===0?'8%':'72%');dot.style.top=(j===0?'12%':'67%');dot.style.pointerEvents='none';atom.appendChild(dot);}
       const slots=document.createElement('div');slots.className='cu-targets';
-      for(let j=0;j<2;j++){const slot=document.createElement('span');slot.className='slot';slot.dataset.cu=i;slot.dataset.slot=j;slot.style.left=(j===0?'5%':'70%');slot.style.top=(j===0?'42%':'5%');slots.appendChild(slot);}
+      for(let j=0;j<2;j++){const slot=document.createElement('span');slot.className='slot';slot.dataset.cu=i;slot.dataset.slot=j;slot.style.left=(j===0?'2%':'64%');slot.style.top=(j===0?'40%':'2%');slots.appendChild(slot);}
       atom.appendChild(slots);cuBox.appendChild(atom);
     }
     bindDrag();
   }
   function bindDrag(){
+    // Pointer events handle both mouse and touch input.
     document.querySelectorAll('.e-dot.draggable').forEach(dot=>{
-      dot.addEventListener('dragstart',e=>{if(eDone||dot.classList.contains('used')){e.preventDefault();return;}dragged=dot;e.dataTransfer.setData('text/plain',dot.dataset.al+':'+dot.dataset.e);e.dataTransfer.effectAllowed='move';});
-      dot.addEventListener('pointerdown',e=>{if(eDone||dot.classList.contains('used'))return; if(e.pointerType==='touch'){dragged=dot;dot.setPointerCapture(e.pointerId);}});
-      dot.addEventListener('pointerup',e=>{if(e.pointerType==='touch'&&dragged===dot){const target=document.elementFromPoint(e.clientX,e.clientY)?.closest('.slot');if(target) transfer(dot,target);dragged=null;}});
-    });
-    document.querySelectorAll('.slot').forEach(slot=>{
-      slot.addEventListener('dragover',e=>{if(!eDone){e.preventDefault();slot.style.background='#4fffc477';}});
-      slot.addEventListener('dragleave',()=>{slot.style.background='';});
-      slot.addEventListener('drop',e=>{e.preventDefault();slot.style.background='';if(dragged)transfer(dragged,slot);});
-      slot.addEventListener('click',()=>{if(dragged)transfer(dragged,slot);});
+      dot.addEventListener('pointerdown',e=>{if(eDone||dot.classList.contains('used'))return;e.preventDefault();dragged=dot;dot.setPointerCapture(e.pointerId);dot.classList.add('being-dragged');dot.style.zIndex='30';});
+      dot.addEventListener('pointerup',e=>{if(dragged!==dot)return;dot.classList.remove('being-dragged');dot.style.zIndex='3';const target=document.elementFromPoint(e.clientX,e.clientY)?.closest('.slot');if(target)transfer(dot,target);else $('electronMessage').textContent='전자 점을 구리 이온의 점선 칸 위에 놓아 주세요.';dragged=null;});
+      dot.addEventListener('pointercancel',()=>{if(dragged===dot){dot.classList.remove('being-dragged');dot.style.zIndex='3';dragged=null;}});
     });
   }
   function transfer(dot,slot){
     if(eDone||!dot||dot.classList.contains('used')||slot.classList.contains('filled'))return;
-    dot.classList.add('used');slot.classList.add('filled');slot.textContent='−';
-    eMoved++;$('progressText').textContent=`${eMoved} / ${eNeed}`;
-    if(eMoved>=eNeed){eDone=true;eScore++;stopETimer();$('scoreText').textContent=`${eScore} / 10`;$('electronMessage').textContent='성공! 전자 이동으로 산화·환원을 완성했어요!';$('nextElectron').disabled=false;}
-    else $('electronMessage').textContent=`좋아요! 전자 ${eMoved}개 이동 완료. ${eNeed-eMoved}개 남았어요.`;
+    const cuAtom=slot.closest('.atom.cu');if(!cuAtom||cuAtom.classList.contains('precipitate'))return;
+    dot.classList.add('used');slot.classList.add('filled');slot.textContent='−';eMoved++;$('progressText').textContent=`${eMoved} / ${eNeed}`;
+    if(cuAtom.querySelectorAll('.slot.filled').length===2){cuAtom.classList.add('precipitate');cuAtom.querySelectorAll('.e-dot:not(.draggable),.slot,.charge').forEach(el=>el.remove());cuAtom.textContent='Cu';const label=document.createElement('span');label.className='precip-label';label.textContent='석출!';cuAtom.appendChild(label);setTimeout(()=>label.remove(),1300);}
+    if(eMoved>=eNeed){eDone=true;eScore++;stopETimer();$('scoreText').textContent=`${eScore} / 10`;$('electronMessage').textContent='성공! 전자 이동으로 산화·환원을 완성했어요!';$('nextElectron').disabled=false;}else $('electronMessage').textContent=`좋아요! 전자 ${eMoved}개 이동 완료. ${eNeed-eMoved}개 남았어요.`;
   }
   $('resetElectron').addEventListener('click',()=>startElectronLevel(eLevel));
   $('nextElectron').addEventListener('click',()=>{
