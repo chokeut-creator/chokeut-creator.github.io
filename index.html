@@ -138,7 +138,7 @@ button:focus-visible{outline:4px solid #fff;outline-offset:4px}
   $('closeHelp').addEventListener('click', () => $('modalShade').classList.remove('open'));
   $('modalShade').addEventListener('click', e => {if(e.target===$('modalShade')) $('modalShade').classList.remove('open');});
 
-  const eSpecs = Array.from({length:10},(_,i)=>({al:Math.min(2+2*Math.floor(i/2),20),cu:Math.min(3+3*Math.floor(i/2),30),time:Math.max(12,20-i)}));
+  const eSpecs = Array.from({length:10},(_,i)=>({al:Math.min(2+2*Math.floor(i/2),20),cu:Math.min(3+3*Math.floor(i/2),30),time:60}));
   let eLevel=1,eMoved=0,eNeed=6,eTime=20,eTimer=null,eDone=false,eScore=0,dragged=null;
   function stopETimer(){if(eTimer){clearInterval(eTimer);eTimer=null;}}
   function startElectronLevel(level){
